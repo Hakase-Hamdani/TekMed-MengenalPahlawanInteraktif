@@ -81,7 +81,7 @@ label start2:
             jump mengenal
 
         "Belajar Menebak.":
-            jump menebak
+            jump menebak_dien
 
 label menebak_dien:
     show a happy with dissolve
@@ -152,11 +152,47 @@ label menebak_kartini:
         "Cut Nyak Dien":
             jump salah
 
+label menebak_hatta:
+    hide p kartini
+    show a happy at center with dissolve
+    e "Kau memang pintar! Tadi itu adalah foto Kartini"
+
+    show a normal at left with dissolve
+    show p hatta at right with dissolve:
+        xalign 0.5
+        yalign 0.5
+    e "Terakhir, siapakah pahlawan yang ada di foto ini?"
+    menu:
+        "Sukarno":
+            jump salah
+        
+        "Muhammad Hatta":
+            jump final
+
+        "Kartini":
+            jump salah
+
+        "Cut Nyak Dien":
+            jump salah
 
 label salah:
     show a sad at center with dissolve
     e "Kau salah!"
     e "Kau harus mengulang!"
     jump menebak_dien
+
+label final:
+    hide p hatta
+    show a happy at center with dissolve
+    e "Hebat! Kau berhasil menjawab semua pertanyaan dengan benar!"
+    show a sad
+    e "Sayangnya, hanya itu saja tebakan yang saya punya..."
+    show a normal
+    e "Tetapi saya berharap akan lebih banyak konten lagi di tambahkan!"
+    show a happy
+    e "Bye!"
+    jump habis
+
+label habis:
 
     return
