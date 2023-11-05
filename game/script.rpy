@@ -172,7 +172,6 @@ label menebak_hatta:
         
         "Muhammad Hatta":
             jump final
-            hide p hatta
 
         "Kartini":
             jump salah
@@ -192,6 +191,7 @@ label salah:
     jump menebak_dien
 
 label final:
+    hide p hatta
     show a happy at center with dissolve
     e "Hebat! Kau berhasil menjawab semua pertanyaan dengan benar!"
     show a sad
