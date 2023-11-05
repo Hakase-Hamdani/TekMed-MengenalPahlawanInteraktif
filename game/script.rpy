@@ -1,5 +1,5 @@
 ﻿# Kamu dapat taruh script game mu di file ini.
-
+default salah_flag = True
 # Deklarasikan gambar di bawah line ini, menggunakan pernyataan image.
 # cnth. image eileen happy = "eileen_happy.png"
 image bg = "images/bg_monas.jpg"
@@ -30,7 +30,7 @@ label start:
             jump mengenal
 
         "Belajar Menebak.":
-            jump menebak
+            jump menebak_dien
 
 
 label mengenal:
@@ -85,12 +85,15 @@ label start2:
 
 label menebak_dien:
     show a happy with dissolve
-    e "Kau mau main tebak-tebakkan?"
-    e "Baiklah!"
+    if salah_flag:
+        e "Kau mau main tebak-tebakkan?"
+        e "Baiklah!"
+    else:
+        e "Mari kita ulang."
 
     show a normal at left with dissolve
     show p dien at right with dissolve:
-        xalign 0.5
+        xalign 0.9
         yalign 0.5
     e "Siapakah yang ada di foto ini?"
     menu:
@@ -105,20 +108,21 @@ label menebak_dien:
 
         "Cut Nyak Dien":
             jump menebak_soekarno
+            hide p dien
 
 label menebak_soekarno:
-    hide p dien
     show a happy at center with dissolve
     e "Kau Benar! Tadi itu adalah Cut Nyak Dien"
 
     show a normal at left with dissolve
     show p sukarno at right with dissolve:
-        xalign 0.5
+        xalign 0.9
         yalign 0.5
     e "Siapa yang ada di foto ini?"
     menu:
         "Sukarno":
             jump menebak_kartini
+            hide p sukarno
         
         "Muhammad Hatta":
             jump salah
@@ -130,13 +134,12 @@ label menebak_soekarno:
             jump salah
 
 label menebak_kartini:
-    hide p sukarno
     show a happy at center with dissolve
     e "Kau benar lagi! Tadi itu adalah Sukarno"
 
     show a normal at left with dissolve
     show p kartini at right with dissolve:
-        xalign 0.5
+        xalign 0.9
         yalign 0.5
     e "Sekarang, siapakah yang ada di foto ini?"
     menu:
@@ -148,18 +151,19 @@ label menebak_kartini:
 
         "Kartini":
             jump menebak_hatta
+            hide p kartini
 
         "Cut Nyak Dien":
             jump salah
+            
 
 label menebak_hatta:
-    hide p kartini
     show a happy at center with dissolve
     e "Kau memang pintar! Tadi itu adalah foto Kartini"
 
     show a normal at left with dissolve
     show p hatta at right with dissolve:
-        xalign 0.5
+        xalign 0.9
         yalign 0.5
     e "Terakhir, siapakah pahlawan yang ada di foto ini?"
     menu:
@@ -168,6 +172,7 @@ label menebak_hatta:
         
         "Muhammad Hatta":
             jump final
+            hide p hatta
 
         "Kartini":
             jump salah
@@ -176,13 +181,17 @@ label menebak_hatta:
             jump salah
 
 label salah:
+    $ salah_flag = False
+    hide p dien
+    hide p hatta
+    hide p kartini
+    hide p sukarno
     show a sad at center with dissolve
     e "Kau salah!"
     e "Kau harus mengulang!"
     jump menebak_dien
 
 label final:
-    hide p hatta
     show a happy at center with dissolve
     e "Hebat! Kau berhasil menjawab semua pertanyaan dengan benar!"
     show a sad
