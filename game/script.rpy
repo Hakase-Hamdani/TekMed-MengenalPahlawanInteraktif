@@ -94,20 +94,44 @@ label menebak_dien:
         yalign 0.5
     e "Siapakah yang ada di foto ini?"
     menu:
-        "Sukarno"
+        "Sukarno":
+            jump salah
         
-        "Muhammad Hatta"
+        "Muhammad Hatta":
+            jump salah
 
-        "Kartini"
+        "Kartini":
+            jump salah
 
         "Cut Nyak Dien"
 
-label benar:
-    show a happy at center with dissolve
-    e "Kau Benar!"
+label menebak_dien:
+    show a happy with dissolve
+    e "Kau mau main tebak-tebakkan?"
+    e "Baiklah!"
+
+    show a normal at left with dissolve
+    show p dien at right with dissolve:
+        xalign 0.5
+        yalign 0.5
+    e "Siapakah yang ada di foto ini?"
+    menu:
+        "Sukarno":
+            jump salah
+        
+        "Muhammad Hatta":
+            jump salah
+
+        "Kartini":
+            jump salah
+
+        "Cut Nyak Dien"
+
 
 label salah:
     show a sad at center with dissolve
-
+    e "Kau salah!"
+    e "Kau harus mengulang!"
+    jump menebak_dien
 
     return
