@@ -103,18 +103,42 @@ label menebak_dien:
         "Kartini":
             jump salah
 
-        "Cut Nyak Dien"
+        "Cut Nyak Dien":
+            jump menebak_soekarno
 
-label menebak_dien:
-    show a happy with dissolve
-    e "Kau mau main tebak-tebakkan?"
-    e "Baiklah!"
+label menebak_soekarno:
+    hide p dien
+    show a happy at center with dissolve
+    e "Kau Benar! Tadi itu adalah Cut Nyak Dien"
 
     show a normal at left with dissolve
-    show p dien at right with dissolve:
+    show p sukarno at right with dissolve:
         xalign 0.5
         yalign 0.5
-    e "Siapakah yang ada di foto ini?"
+    e "Siapa yang ada di foto ini?"
+    menu:
+        "Sukarno":
+            jump menebak_kartini
+        
+        "Muhammad Hatta":
+            jump salah
+
+        "Kartini":
+            jump salah
+
+        "Cut Nyak Dien":
+            jump salah
+
+label menebak_kartini:
+    hide p sukarno
+    show a happy at center with dissolve
+    e "Kau benar lagi! Tadi itu adalah Sukarno"
+
+    show a normal at left with dissolve
+    show p kartini at right with dissolve:
+        xalign 0.5
+        yalign 0.5
+    e "Sekarang, siapakah yang ada di foto ini?"
     menu:
         "Sukarno":
             jump salah
@@ -123,9 +147,10 @@ label menebak_dien:
             jump salah
 
         "Kartini":
-            jump salah
+            jump menebak_hatta
 
-        "Cut Nyak Dien"
+        "Cut Nyak Dien":
+            jump salah
 
 
 label salah:
