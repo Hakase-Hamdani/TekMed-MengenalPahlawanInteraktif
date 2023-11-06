@@ -562,6 +562,12 @@ screen about():
                 text "[gui.about!t]\n"
 
             text _("Dibuat Dengan {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
+            text _("")
+            text _("Di buat oleh Muhammad Hamdani (2110010302);")
+            text _("Di purwarupakan oleh Dimas Adi Nugroho (2110010139);")
+            text _("Laporan dibuat oleh Puspita Sari (2110019582) dan Syah Renaldi Nur Ahmad (2110010125)")
+            text _("")
+            text _("Visual Novel ini dibuat untuk memenuhi tugas mata kuliah Teknologi Multimedia.")
 
 
 style about_label is gui_label

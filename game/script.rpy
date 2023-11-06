@@ -203,5 +203,6 @@ label final:
     jump habis
 
 label habis:
+    #kosong
 
     return
